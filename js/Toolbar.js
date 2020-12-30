@@ -2,7 +2,7 @@ import { UIPanel, UIButton } from '../libs/ui.js';
 
 function Toolbar () {
     var container = new UIPanel();
-    container.setId('toobar');
+    container.setId('toolbar');
 
     // translate / rotate /scale 
     var translateIcon = document.createElement('img');
@@ -28,6 +28,18 @@ function Toolbar () {
         //signals.transformModeChanged.dispatch('rotate');
     });
     container.add(rotate);
+
+    var scaleIcon = document.createElement('img');
+    //scaleIcon.title = string.getKey('toolbar/scale');
+    scaleIcon.src = 'images/scale.svg';
+
+    var scale = new UIButton();
+    scale.dom.appendChild(scaleIcon);
+    scale.onClick( function () {
+        //signal.trasformModeChanged.dispatch('scale');
+    });
+    container.add(scale);
+
 
     return container;
 }

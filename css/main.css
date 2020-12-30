@@ -1,0 +1,57 @@
+body{
+    font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	overflow: hidden;
+}
+button {
+    position: relative;
+}
+
+button {
+    color: #555;
+	background-color: rgb(34, 32, 32);
+	border: 0px;
+	margin: 0px; /* GNOME Web */
+	padding: 5px 8px;
+	text-transform: uppercase;
+	cursor: pointer;
+	outline: none;
+}
+
+.Panel {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+    	/* No support for these yet */
+	-o-user-select: none;
+	user-select: none;
+}
+
+.Panel {
+    color: #888;
+}
+
+
+#toolbar {
+    position: absolute;
+    right: 10px;
+    top: 42px;
+    width: 32px;
+    background: #eee;
+    text-align: center;
+}
+    #toolbar button, #toolbar input {
+        height: 32xp;
+    }
+        #toolbar button img{
+            width: 16px;
+            opacity: 0.5;
+        }
+    #toolbar {
+        background-color: #111;
+    }
+        #toolbar img {
+            filter: invert(1);
+        }
