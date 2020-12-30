@@ -10,9 +10,13 @@
         <script type = "module">
             
             import {Toolbar}  from '/js/Toolbar.js';
+            import {Sidebar} from '/js/Sidebar.js';
 
             var toolbar = new Toolbar();
             document.body.appendChild(toolbar.dom);
+
+            var sidebar = new Sidebar();
+            document.body.appendChild(sidebar.dom);
 
         </script>
 
