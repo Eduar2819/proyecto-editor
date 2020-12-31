@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="Cubo1.svg"
+   xml:space="preserve"
+   style="enable-background:new 0 0 512 512;"
+   viewBox="0 0 512 512"
+   y="0px"
+   x="0px"
+   id="Layer_1"
+   version="1.1"><metadata
+   id="metadata47"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs45" /><sodipodi:namedview
+   inkscape:current-layer="Layer_1"
+   inkscape:window-maximized="1"
+   inkscape:window-y="-11"
+   inkscape:window-x="-11"
+   inkscape:cy="256"
+   inkscape:cx="256"
+   inkscape:zoom="1.7148438"
+   showgrid="false"
+   id="namedview43"
+   inkscape:window-height="1046"
+   inkscape:window-width="1920"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+<polygon
+   id="polygon2"
+   points="256.004,256 82.456,356.206 256.004,456.394 429.562,356.209 "
+   style="fill:#ff2a2a" />
+<g
+   id="g10">
+	<path
+   id="path4"
+   d="M256.004,512L34.3,384V128L256.004,0L477.7,128.008v256L256.004,512z M53.876,372.698   l202.127,116.698l202.122-116.69V139.31L256.004,22.605L53.876,139.302V372.698z"
+   style="fill:#242D3C;" />
+	<polygon
+   id="polygon6"
+   points="256.004,267.302 39.195,142.129 48.982,125.174 256.004,244.698 463.018,125.181    472.808,142.134  "
+   style="fill:#242D3C;" />
+	<rect
+   id="rect8"
+   height="244.685"
+   width="19.576"
+   style="fill:#242D3C;"
+   y="256"
+   x="246.222" />
+</g>
+<g
+   id="g12">
+</g>
+<g
+   id="g14">
+</g>
+<g
+   id="g16">
+</g>
+<g
+   id="g18">
+</g>
+<g
+   id="g20">
+</g>
+<g
+   id="g22">
+</g>
+<g
+   id="g24">
+</g>
+<g
+   id="g26">
+</g>
+<g
+   id="g28">
+</g>
+<g
+   id="g30">
+</g>
+<g
+   id="g32">
+</g>
+<g
+   id="g34">
+</g>
+<g
+   id="g36">
+</g>
+<g
+   id="g38">
+</g>
+<g
+   id="g40">
+</g>
+</svg>

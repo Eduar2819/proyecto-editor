@@ -10,9 +10,9 @@ button {
 
 button {
     color: #555;
-	background-color: rgb(34, 32, 32);
+	background-color: rgb(255, 58, 58);
 	border: 0px;
-	margin: 0px; /* GNOME Web */
+	margin: 1px; /* GNOME Web */
 	padding: 5px 8px;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -37,20 +37,20 @@ button {
 #toolbar {
     position: absolute;
     right: 320px;
-    top: 32px;
-    width: 32px;
-    background: #eee;
+    top: 45px;
+    width: 33px;
     text-align: center;
 }
     #toolbar button, #toolbar input {
         height: 32xp;
+        border-radius: 3px;
     }
         #toolbar button img{
             width: 16px;
-            opacity: 0.5;
         }
     #toolbar {
-        background-color: #111;
+        background-color: rgba(255, 58, 58, 0);
+        border-radius: 3px;
     }
         #toolbar img {
             filter: invert(1);
@@ -58,10 +58,47 @@ button {
 #sidebar {
     position: absolute;
     right: 0;
-    top: 32px;
+    top: 40px;
     bottom: 0;
     width: 300px;
     background: #eee;
     overflow: auto;
 
 }
+
+#menubar{
+    position: absolute;
+    left: 40px;
+    top: 60px;
+    width: 60px;
+    background: rgba(255, 32, 32, 0);
+    text-align: center;
+
+    
+}
+
+    #menubar button, #menubar input{
+        height: 60px;
+        width: 60px;
+        background: rgb(255, 255, 255);
+        margin: 10px 0px;
+        padding: 10px 0px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px  rgb(255, 81, 81);
+
+      
+    }
+        #menubar img {
+
+         position: relative;
+         text-align: center;
+         width: 40px;
+        }
+
+.nav-header.inicio{
+    background-color: rgb(255, 58, 58);
+    height: 40px;
+    width: 100%;
+
+}
+

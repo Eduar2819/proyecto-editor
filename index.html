@@ -11,6 +11,7 @@
             
             import {Toolbar}  from '/js/Toolbar.js';
             import {Sidebar} from '/js/Sidebar.js';
+            import {Menubar} from '/js/Menubar.js';
 
             var toolbar = new Toolbar();
             document.body.appendChild(toolbar.dom);
@@ -18,7 +19,14 @@
             var sidebar = new Sidebar();
             document.body.appendChild(sidebar.dom);
 
+            var menubar = new Menubar();
+            document.body.appendChild(menubar.dom);
+
         </script>
+
+        <header class = "nav-header inicio">
+
+        </header>
 
     </body>
 
