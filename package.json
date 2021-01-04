@@ -1,0 +1,22 @@
+{
+  "name": "editor",
+  "version": "1.0.0",
+  "description": "Software educativo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eduar2819/proyecto-editor.git"
+  },
+  "author": "Eduardo Sosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eduar2819/proyecto-editor/issues"
+  },
+  "homepage": "https://github.com/Eduar2819/proyecto-editor#readme",
+  "dependencies": {
+    "three": "^0.124.0"
+  }
+}
