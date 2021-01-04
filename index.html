@@ -7,14 +7,24 @@
         <link rel="stylesheet" href="./css/main.css">
     </head>
     <body>
+        <script src="./libs/signals.min.js"></script>
+
         <script type = "module">
             
+            import * as THREE from '/node_modules/three/build/three.module.js';
+
+            import {Editor} from '/js/Editor.js'
             import {View} from '/js/View.js';
             import {Toolbar}  from '/js/Toolbar.js';
             import {Sidebar} from '/js/Sidebar.js';
             import {Menubar} from '/js/Menubar.js';
 
-            var view = new View();
+            var editor = new Editor();
+
+            window.editor = editor;
+            window.THREE = THREE;
+
+            var view = new View(editor);
             document.body.appendChild( view.dom);
 
             var toolbar = new Toolbar();
@@ -25,6 +35,16 @@
 
             var menubar = new Menubar();
             document.body.appendChild(menubar.dom);
+
+            var signals = editor.signals;
+            
+            function onWindowResize() {
+
+                editor.signals.windowResize.dispatch();
+            }
+
+            window.addEventListener('resize', onWindowResize, false);
+            onWindowResize();
 
         </script>
 

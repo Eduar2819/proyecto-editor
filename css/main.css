@@ -36,8 +36,8 @@ button {
 
 #toolbar {
     position: absolute;
-    right: 320px;
-    top: 45px;
+    right: 350px;
+    top: 70px;
     width: 33px;
     text-align: center;
 }
@@ -58,10 +58,10 @@ button {
 #sidebar {
     position: absolute;
     right: 0;
-    top: 40px;
+    top: 42px;
     bottom: 0;
     width: 300px;
-    background: #eee;
+    background: rgb(255, 255, 255);
     overflow: auto;
 
 }
@@ -97,8 +97,25 @@ button {
 
 .nav-header.inicio{
     background-color: rgb(255, 58, 58);
-    height: 40px;
+    height: 42px;
     width: 100%;
 
 }
 
+#view {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 300px;
+    bottom: 0;
+}
+
+#resizer {
+    position: absolute;
+	top: 32px;
+	right: 295px;
+	width: 5px;
+	bottom: 0px;
+	/* background-color: rgba(255,0,0,0.5); */
+	cursor: col-resize;
+}
