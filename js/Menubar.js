@@ -1,6 +1,6 @@
 import {UIPanel, UIButton} from '../libs/ui.js';
 
-function Menubar(){
+function Menubar(editor){
 
     var container = new UIPanel();
     container.setId('menubar');
@@ -17,6 +17,7 @@ function Menubar(){
     var ModeloInput = document.createElement('input');
     ModeloInput.multiple = true;
     ModeloInput.type = 'file';
+    ModeloForm.appendChild(ModeloInput);
 
     var Modelo = new UIButton();
     Modelo.dom.appendChild(ModeloIcon);

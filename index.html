@@ -8,6 +8,7 @@
     </head>
     <body>
         <script src="./libs/signals.min.js"></script>
+        
 
         <script type = "module">
             
@@ -27,13 +28,13 @@
             var view = new View(editor);
             document.body.appendChild( view.dom);
 
-            var toolbar = new Toolbar();
+            var toolbar = new Toolbar(editor);
             document.body.appendChild(toolbar.dom);
 
-            var sidebar = new Sidebar();
+            var sidebar = new Sidebar(editor);
             document.body.appendChild(sidebar.dom);
 
-            var menubar = new Menubar();
+            var menubar = new Menubar(editor);
             document.body.appendChild(menubar.dom);
 
             var signals = editor.signals;

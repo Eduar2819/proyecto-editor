@@ -1,6 +1,6 @@
 import {UIPanel, UIButton} from '../libs/ui.js';
 
-function Sidebar (){
+function Sidebar (editor){
 
     var container = new UIPanel();
     container.setId('sidebar');
