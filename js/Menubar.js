@@ -1,4 +1,4 @@
-import {UIPanel, UIButton} from '../libs/ui.js';
+import {UIPanel, UIButton} from '/js/libs/ui.js';
 
 function Menubar(editor){
 
@@ -17,10 +17,12 @@ function Menubar(editor){
     var ModeloInput = document.createElement('input');
     ModeloInput.multiple = true;
     ModeloInput.type = 'file';
-    ModeloInput.addEventListener('change', function(){
-        editor.loader.loadFiles(ModeloInput.files);
-        ModeloForm.reset();
-    });
+    ModeloInput.addEventListener( 'change', function () {
+
+		editor.loader.loadFiles( ModeloInput.files );
+		ModeloForm.reset();
+
+	} );
     ModeloForm.appendChild(ModeloInput);
 
     var Modelo = new UIButton();

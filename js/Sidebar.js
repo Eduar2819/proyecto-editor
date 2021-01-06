@@ -1,4 +1,4 @@
-import {UIPanel, UIButton} from '../libs/ui.js';
+import {UIPanel, UIButton} from '/js/libs/ui.js';
 
 function Sidebar (editor){
 
