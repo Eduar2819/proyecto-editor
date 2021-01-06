@@ -1,14 +1,11 @@
 import * as THREE from '/node_modules/three/build/three.module.js';
+import { TransformControls } from '/node_modules/three/examples/jsm/controls/TransformControls.js';
+import { EditorControls } from '/js/EditorControls.js';
+import { UIPanel } from '/libs/ui.js';
 
-import {EditorControls} from './EditorControls.js';
-
-import {TransformControls} from '../node_modules/three/examples/jsm/controls/TransformControls.js';
-
-import {UIPanel} from '../libs/ui.js';
-
-import { SetPositionCommand } from './commands/SetPositionCommand.js';
-import { SetRotationCommand } from './commands/SetRotationCommand.js';
-import { SetScaleCommand } from './commands/SetScaleCommand.js';
+import { SetPositionCommand } from '/js/commands/SetPositionCommand.js';
+import { SetRotationCommand } from '/js/commands/SetRotationCommand.js';
+import { SetScaleCommand } from '/js/commands/SetScaleCommand.js';
 
 
 
@@ -18,21 +15,18 @@ function View(editor){
     
     var container = new UIPanel();
     container.setId('view');
-    container.setPosition('absolute');
-
-    var clock = new THREE.Clock();
-    
+	container.setPosition('absolute');
+	
+    var renderer = new THREE.WebGLRenderer( { antialias: true } );
+	renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( container.dom.offsetWidth, container.dom.offsetHeight);
+	container.dom.appendChild( renderer.domElement );
+	
     var camera = editor.camera;
     var scene = editor.scene;
     var showSceneHelpers = true;
     var sceneHelpers = editor.sceneHelpers;
     
-
-    
-    var renderer = new THREE.WebGLRenderer( { antialias: true } );
-	renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( container.dom.offsetWidth, container.dom.offsetHeight);
-    container.dom.appendChild( renderer.domElement );
 
     var objects = [];
 
@@ -52,7 +46,7 @@ function View(editor){
 	var objectRotationOnDown = null;
 	var objectScaleOnDown = null;
 
-    var transformControls = new TransformControls(camera, container.dom);
+   var transformControls = new TransformControls(camera, container.dom);
 	
 	transformControls.addEventListener( 'change', function () {
 
@@ -85,7 +79,7 @@ function View(editor){
 		objectRotationOnDown = object.rotation.clone();
 		objectScaleOnDown = object.scale.clone();
 
-		controls.enabled = false;
+		controls.enabled = true;
 
 	} );
 	transformControls.addEventListener( 'mouseUp', function () {
@@ -130,9 +124,10 @@ function View(editor){
 
 		}
 
-		controls.enabled = true;
+		controls.enabled = false;
 
 	} );
+	
 
     sceneHelpers.add( transformControls );
     
@@ -478,7 +473,9 @@ function View(editor){
 
     } );
 
-    signals.cameraResetted.add( updateAspectRatio );
+	signals.cameraResetted.add( updateAspectRatio );
+	
+	var clock = new THREE.Clock();
     
     function animate (){
         

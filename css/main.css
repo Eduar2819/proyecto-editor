@@ -58,6 +58,14 @@ select {
     color: #888;
 }
 
+#view {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 300px;
+    bottom: 0;
+}
+
 
 #toolbar {
     position: absolute;
@@ -130,12 +138,6 @@ select {
 
 }
 
-#view {
-    position: absolute;
-    top: 42px;
-    left: 0;
-    right: 300px;
-    bottom: 0;
-}
+
 
 
