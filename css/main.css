@@ -135,6 +135,17 @@ select {
 
 }
 
+.header_logo{
+    display: block;
+    text-align: center;
+    padding-top: 2px;
+    
+}
+
+.nav-header.inicio img{
+    width: 100px;
+}
+
 
 
 

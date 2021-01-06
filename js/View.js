@@ -324,50 +324,6 @@ function View( editor ) {
 
 	} );
 
-	signals.rendererChanged.add( function ( newRenderer ) {
-
-		if ( renderer !== null ) {
-
-			renderer.dispose();
-			pmremGenerator.dispose();
-			pmremTexture = null;
-
-			container.dom.removeChild( renderer.domElement );
-
-		}
-
-		renderer = newRenderer;
-
-		renderer.setClearColor( 0xaaaaaa );
-
-		if ( window.matchMedia ) {
-
-			var mediaQuery = window.matchMedia( '(prefers-color-scheme: dark)' );
-			mediaQuery.addListener( function ( event ) {
-
-				renderer.setClearColor( event.matches ? 0x333333 : 0xaaaaaa );
-				updateGridColors( grid, event.matches ? [ 0x888888, 0x222222 ] : [ 0x282828, 0x888888 ] );
-
-				render();
-
-			} );
-
-			renderer.setClearColor( mediaQuery.matches ? 0x333333 : 0xaaaaaa );
-			updateGridColors( grid, mediaQuery.matches ? [ 0x888888, 0x222222 ] : [ 0x282828, 0x888888 ] );
-
-		}
-
-		renderer.setPixelRatio( window.devicePixelRatio );
-		renderer.setSize( container.dom.offsetWidth, container.dom.offsetHeight );
-
-		pmremGenerator = new THREE.PMREMGenerator( renderer );
-		pmremGenerator.compileEquirectangularShader();
-
-		container.dom.appendChild( renderer.domElement );
-
-		render();
-
-	} );
 
 	signals.sceneGraphChanged.add( function () {
 
@@ -390,6 +346,7 @@ function View( editor ) {
 
 			box.setFromObject( object );
 
+			
 			if ( box.isEmpty() === false ) {
 
 				selectionBox.setFromObject( object );
@@ -436,9 +393,10 @@ function View( editor ) {
 	signals.objectChanged.add( function ( object ) {
 
 		if ( editor.selected === object ) {
+			if(object.type == 'Group'){
 
 			selectionBox.setFromObject( object );
-			
+			}
 
 		}
 
