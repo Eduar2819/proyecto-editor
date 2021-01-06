@@ -1,7 +1,14 @@
 import * as THREE from '/node_modules/three/build/three.module.js';
-import {EditorControls} from '/js/EditorControls.js'
-import {TransformControls} from '/node_modules/three/examples/jsm/controls/TransformControls.js'
+
+import {EditorControls} from './EditorControls.js';
+
+import {TransformControls} from '../node_modules/three/examples/jsm/controls/TransformControls.js';
+
 import {UIPanel} from '../libs/ui.js';
+
+import { SetPositionCommand } from './commands/SetPositionCommand.js';
+import { SetRotationCommand } from './commands/SetRotationCommand.js';
+import { SetScaleCommand } from './commands/SetScaleCommand.js';
 
 
 
@@ -24,7 +31,7 @@ function View(editor){
     
     var renderer = new THREE.WebGLRenderer( { antialias: true } );
 	renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( window.innerWidth, window.innerHeight  );
+    renderer.setSize( container.dom.offsetWidth, container.dom.offsetHeight);
     container.dom.appendChild( renderer.domElement );
 
     var objects = [];
@@ -46,7 +53,7 @@ function View(editor){
 	var objectScaleOnDown = null;
 
     var transformControls = new TransformControls(camera, container.dom);
-	var transformControls = new TransformControls( camera, container.dom );
+	
 	transformControls.addEventListener( 'change', function () {
 
 		var object = transformControls.object;
@@ -127,7 +134,8 @@ function View(editor){
 
 	} );
 
-	sceneHelpers.add( transformControls );
+    sceneHelpers.add( transformControls );
+    
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
 
@@ -315,7 +323,136 @@ function View(editor){
 
         controls.enabled = (viewCamera === editor.camera);
         render();
-    })
+	})
+	
+	signals.sceneGraphChanged.add( function () {
+
+		render();
+
+	} );
+
+	signals.objectSelected.add( function ( object ) {
+
+		selectionBox.visible = false;
+		transformControls.detach();
+
+		if ( object !== null && object !== scene && object !== camera ) {
+
+			box.setFromObject( object );
+
+			if ( box.isEmpty() === false ) {
+
+				selectionBox.setFromObject( object );
+				selectionBox.visible = true;
+
+			}
+
+			transformControls.attach( object );
+
+		}
+
+		render();
+
+	} );
+
+	signals.objectFocused.add( function ( object ) {
+
+		controls.focus( object );
+
+	} );
+
+	signals.geometryChanged.add( function ( object ) {
+
+		if ( object !== undefined ) {
+
+			selectionBox.setFromObject( object );
+
+		}
+
+		render();
+
+	} );
+
+	signals.objectAdded.add( function ( object ) {
+
+		object.traverse( function ( child ) {
+
+			objects.push( child );
+
+		} );
+
+	} );
+
+	signals.objectChanged.add( function ( object ) {
+
+		if ( editor.selected === object ) {
+
+			selectionBox.setFromObject( object );
+
+		}
+
+		if ( object.isPerspectiveCamera ) {
+
+			object.updateProjectionMatrix();
+
+		}
+
+		if ( editor.helpers[ object.id ] !== undefined ) {
+
+			editor.helpers[ object.id ].update();
+
+		}
+
+		render();
+
+	} );
+
+	signals.objectRemoved.add( function ( object ) {
+
+		controls.enabled = true; // see #14180
+		if ( object === transformControls.object ) {
+
+			transformControls.detach();
+
+		}
+
+		object.traverse( function ( child ) {
+
+			objects.splice( objects.indexOf( child ), 1 );
+
+		} );
+
+	} );
+
+	signals.helperAdded.add( function ( object ) {
+
+		var picker = object.getObjectByName( 'picker' );
+
+		if ( picker !== undefined ) {
+
+			objects.push( picker );
+
+		}
+
+	} );
+
+	signals.helperRemoved.add( function ( object ) {
+
+		var picker = object.getObjectByName( 'picker' );
+
+		if ( picker !== undefined ) {
+
+			objects.splice( objects.indexOf( picker ), 1 );
+
+		}
+
+	} );
+
+	signals.materialChanged.add( function () {
+
+		render();
+
+	} );
     
 	signals.windowResize.add( function () {
 
@@ -389,4 +526,4 @@ function View(editor){
     
     return container;
 }
-    export {View}
+    export {View};

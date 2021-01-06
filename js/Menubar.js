@@ -17,6 +17,10 @@ function Menubar(editor){
     var ModeloInput = document.createElement('input');
     ModeloInput.multiple = true;
     ModeloInput.type = 'file';
+    ModeloInput.addEventListener('change', function(){
+        editor.loader.loadFiles(ModeloInput.files);
+        ModeloForm.reset();
+    });
     ModeloForm.appendChild(ModeloInput);
 
     var Modelo = new UIButton();
@@ -38,6 +42,7 @@ function Menubar(editor){
     var VideoInput = document.createElement('input');
     VideoInput.multiple = true;
     VideoInput.type = 'file';
+    
 
     var Video = new UIButton();
     Video.dom.appendChild(VideoIcon);

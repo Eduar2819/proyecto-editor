@@ -17,7 +17,7 @@ function Toolbar (editor) {
     translate.dom.appendChild(translateIcon);
     translate.onClick(function (){
 
-        signals.transformModeChanged.dispatch('translate');
+        signals.transformModeChanged.dispatch( 'translate' );
     });
     container.add(translate);
 
@@ -28,7 +28,7 @@ function Toolbar (editor) {
     var rotate = new UIButton();
     rotate.dom.appendChild(rotateIcon);
     rotate.onClick( function (){
-        signals.transformModeChanged.dispatch('rotate');
+        signals.transformModeChanged.dispatch( 'rotate' );
     });
     container.add(rotate);
 
@@ -39,7 +39,7 @@ function Toolbar (editor) {
     var scale = new UIButton();
     scale.dom.appendChild(scaleIcon);
     scale.onClick( function () {
-        signals.transformModeChanged.dispatch('scale');
+        signals.transformModeChanged.dispatch( 'scale' );
     });
     container.add(scale);
 

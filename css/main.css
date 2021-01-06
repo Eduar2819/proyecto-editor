@@ -6,6 +6,10 @@ body{
 	margin: 0;
 	overflow: hidden;
 }
+hr {
+    border: 0;
+	border-top: 1px solid #ccc;
+}
 button {
     position: relative;
 }
@@ -26,6 +30,18 @@ button {
 
 	button.selected {
 		background-color: rgb(241, 135, 135);
+    }
+    
+select {
+    color: #666;
+	background-color: #ddd;
+	border: 0px;
+	text-transform: uppercase;
+	cursor: pointer;
+	outline: none;
+}
+    select:hover {
+		background-color: #fff;
 	}
 
 .Panel {
