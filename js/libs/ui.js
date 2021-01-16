@@ -243,6 +243,7 @@ function UIText( text ) {
 	dom.style.cursor = 'default';
 	dom.style.display = 'inline-block';
 	dom.style.verticalAlign = 'middle';
+	dom.style.color = 'black'
 
 	this.dom = dom;
 	this.setValue( text );
